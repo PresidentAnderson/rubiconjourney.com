@@ -1,0 +1,23 @@
+// Cloudflare Workers static deploy — migrated off Vercel.
+// Run ./build.sh first; Workers Assets cannot take the repo root as its directory.
+// Deploy:  ./build.sh && npx wrangler deploy
+{
+  "name": "rubiconjourney-com",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "rubiconjourney.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.rubiconjourney.com",
+      "custom_domain": true
+    }
+  ]
+}
